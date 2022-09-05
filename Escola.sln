@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Escola.Shared", "Escola.Sha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Escola.API", "Escola.API\Escola.API.csproj", "{A4B103FD-9CAB-4162-9219-14EC707903D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Escola.Test", "Escola.Test\Escola.Test.csproj", "{8E6D8DF2-8BF0-405B-921F-7F42A75D790C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A4B103FD-9CAB-4162-9219-14EC707903D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4B103FD-9CAB-4162-9219-14EC707903D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4B103FD-9CAB-4162-9219-14EC707903D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E6D8DF2-8BF0-405B-921F-7F42A75D790C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E6D8DF2-8BF0-405B-921F-7F42A75D790C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E6D8DF2-8BF0-405B-921F-7F42A75D790C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E6D8DF2-8BF0-405B-921F-7F42A75D790C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
