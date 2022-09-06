@@ -1,6 +1,6 @@
 ﻿using Escola.Shared.Commands.Interfaces;
 
-namespace Escola.Domain.Commands.SchoolRecord
+namespace Escola.Domain.Commands.SchoolRecordCommands
 {
     public class CreateSchoolRecordCommand : ICommand
     {

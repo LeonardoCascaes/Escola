@@ -14,7 +14,7 @@ namespace Escola.Infra.Repositories
             _context = context;
         }
 
-        public async Task Add(T entity)
+        public async Task Create(T entity)
         {
             await _context.AddAsync<T>(entity);
             await _context.SaveChangesAsync();

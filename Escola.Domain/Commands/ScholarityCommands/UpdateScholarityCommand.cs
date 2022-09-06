@@ -1,6 +1,6 @@
 ﻿using Escola.Shared.Commands.Interfaces;
 
-namespace Escola.Domain.Commands.Scholarity
+namespace Escola.Domain.Commands.ScholarityCommands
 {
     public class UpdateScholarityCommand : ICommand
     {

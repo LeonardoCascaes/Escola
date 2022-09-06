@@ -1,6 +1,6 @@
 ﻿using Escola.Shared.Commands.Interfaces;
 
-namespace Escola.Domain.Commands.SchoolEvaluation
+namespace Escola.Domain.Commands.SchoolEvaluationCommands
 {
     public class UpdateSchoolEvaluationCommand : ICommand
     {
