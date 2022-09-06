@@ -1,8 +1,9 @@
 ﻿using Escola.Shared.Commands.Interfaces;
+using Escola.Shared.Entities;
 
 namespace Escola.Domain.Commands.ScholarityCommands
 {
-    public class UpdateScholarityCommand : ICommand
+    public class UpdateScholarityCommand : Notifiable, ICommand
     {
         public UpdateScholarityCommand(int id, string description)
         {
@@ -16,7 +17,13 @@ namespace Escola.Domain.Commands.ScholarityCommands
 
         public void Validate()
         {
-            throw new NotImplementedException();
+            AddNotifications
+                (
+                    new Validation()
+                    .Requires()
+                    .ValidateSchooling("Description", Description)
+                    .Notifications
+                );
         }
     }
 }

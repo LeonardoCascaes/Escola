@@ -9,5 +9,13 @@
 
             return this;
         }
+
+        public Validation YearMustBeGreaterThan(string property, short testValue, short minYear)
+        {
+            if (testValue < minYear)
+                AddNotification(new Notification(property, $"O ano deve ser maior que {minYear}."));
+
+            return this;
+        }
     }
 }
