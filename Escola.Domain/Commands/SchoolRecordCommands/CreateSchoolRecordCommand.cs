@@ -5,13 +5,13 @@ namespace Escola.Domain.Commands.SchoolRecordCommands
 {
     public class CreateSchoolRecordCommand : Notifiable, ICommand
     {
-        public CreateSchoolRecordCommand(short year, int userId)
+        public CreateSchoolRecordCommand(short yearOfCompletion, int userId)
         {
-            Year = year;
+            YearOfCompletion = yearOfCompletion;
             UserId = userId;
         }
 
-        public short Year { get; private set; }
+        public short YearOfCompletion { get; private set; }
         public int UserId { get; private set; }
 
         public void Validate()
@@ -20,7 +20,7 @@ namespace Escola.Domain.Commands.SchoolRecordCommands
                 (
                     new Validation()
                         .Requires()
-                        .YearMustBeGreaterThan("Year", Year, 2015)
+                        .YearMustBeGreaterThan("YearOfCompletion", YearOfCompletion, 1990)
                         .Notifications
                 );
         }
