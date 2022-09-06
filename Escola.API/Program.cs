@@ -1,4 +1,11 @@
+using Escola.Infra.Contexts;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddDbContextPool<SchoolDbContext>(opt =>
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DBConnection")));
 
 // Add services to the container.
 
