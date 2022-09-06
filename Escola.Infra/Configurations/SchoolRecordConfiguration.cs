@@ -13,6 +13,8 @@ namespace Escola.Infra.Configurations
             builder.Property(x => x.CreationDate).HasColumnType("DateTime").IsRequired();
             builder.Property(x => x.ModificationDate).HasColumnType("DateTime").IsRequired();
 
+            builder.Property(x => x.Year).HasColumnType("SmallInt").IsRequired();
+
             builder.HasOne(s => s.User)
                 .WithOne(u => u.SchoolRecord)
                 .HasForeignKey<SchoolRecord>(s => s.UserId);
