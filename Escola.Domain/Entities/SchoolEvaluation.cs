@@ -15,5 +15,15 @@ namespace Escola.Domain.Entities
         public float Grade { get; private set; }
         public int SchoolRecordId { get; private set; }
         public SchoolRecord? SchoolRecord { get; private set; }
+
+        public void ChangeMatter(string matter)
+        {
+            Matter = matter;
+        }
+
+        public void ChangeGrade(float grade)
+        {
+            Grade = grade;
+        }
     }
 }

@@ -18,5 +18,25 @@ namespace Escola.Domain.Entities
         public DateTime BirthDate { get; private set; }
         public Scholarity? Scholarity { get; private set; }
         public SchoolRecord? SchoolRecord { get; private set; }
+
+        public void ChangeName(string newName)
+        {
+            Name = newName;
+        }
+
+        public void ChangeLastName(string lastName)
+        {
+            LastName = lastName;
+        }
+
+        public void ChangeEmail(string email)
+        {
+            Email = email;
+        }
+
+        public void ChangeBirthDate(DateTime birthDate)
+        {
+            BirthDate = birthDate;
+        }
     }
 }

@@ -8,6 +8,6 @@ namespace Escola.Domain.RepositoryInterfaces
         Task<T?> Get(int id);
         Task<IEnumerable<T>?> GetAll();
         Task Update(T entity);
-        Task Delete(int id);
+        Task Delete(T entity);
     }
 }

@@ -26,7 +26,7 @@ namespace Escola.Domain.Handlers.UserHandlers
 
             await _userRepository.Create(user);
 
-            return new GenericCommandResult(false, "Usuario cadastrado com sucesso.", new GenericOutput(user.Id, command));
+            return new GenericCommandResult(true, "Usuario cadastrado com sucesso.", new GenericOutput(user.Id, command));
         }
     }
 }

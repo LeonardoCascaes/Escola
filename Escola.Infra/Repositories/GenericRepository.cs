@@ -36,14 +36,10 @@ namespace Escola.Infra.Repositories
             _context.Update<T>(entity);
             await _context.SaveChangesAsync();
         }
-        public async Task Delete(int id)
+        public async Task Delete(T entity)
         {
-            var entity = await Get(id);
-            if(entity != null)
-            {
-                _context.Remove<T>(entity);
-                await _context.SaveChangesAsync();
-            }
+            _context.Remove<T>(entity);
+            await _context.SaveChangesAsync();
         }
     }
 }

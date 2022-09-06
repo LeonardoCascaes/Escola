@@ -13,5 +13,10 @@ namespace Escola.Domain.Entities
         public string Description { get; private set; }
         public int UserId { get; private set; }
         public User? User { get; private set; }
+
+        public void ChangeDescripton(string description)
+        {
+            Description = description;
+        }
     }
 }
