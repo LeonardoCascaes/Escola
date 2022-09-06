@@ -21,7 +21,7 @@ namespace Escola.Domain.Handlers.UserHandlers
                 return new GenericCommandResult(false, "Falha ao encontrar o usuario.", null);
 
             await _userRepository.Delete(user);
-            return new GenericCommandResult(true, "Usuario deletado com sucesso!", user.Id);
+            return new GenericCommandResult(true, "Usuario deletado com sucesso.", user.Id);
         }
     }
 }

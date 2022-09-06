@@ -1,4 +1,5 @@
 ﻿using Escola.Domain.Entities;
+using Escola.Domain.Handlers.ScholarityHandlers;
 using Escola.Domain.Handlers.UserHandlers;
 using Escola.Domain.RepositoryInterfaces;
 using Escola.Infra.Repositories;
@@ -20,6 +21,9 @@ namespace Escola.IoC
             service.AddTransient<CreateUserHandler, CreateUserHandler>();
             service.AddTransient<UpdateUserHandler, UpdateUserHandler>();
             service.AddTransient<DeleteUserHandler, DeleteUserHandler>();
+            service.AddTransient<CreateScholarityHandler, CreateScholarityHandler>();
+            service.AddTransient<UpdateScholarityHandler, UpdateScholarityHandler>();
+            service.AddTransient<DeleteScholarityHandler, DeleteScholarityHandler>();
 
             return service;
         }

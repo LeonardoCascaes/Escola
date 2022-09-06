@@ -30,9 +30,10 @@ namespace Escola.Domain.Handlers.UserHandlers
             user.ChangeLastName(command.LastName);
             user.ChangeEmail(command.Email);
             user.ChangeBirthDate(command.BirthDate);
+            user.ChangeModificationDate();
 
             await _userRepository.Update(user);
-            return new GenericCommandResult(true, "Usuario atualizado com sucesso!", new GenericOutput(user.Id, command));
+            return new GenericCommandResult(true, "Usuario atualizado com sucesso.", new GenericOutput(user.Id, command));
         }
     }
 }
