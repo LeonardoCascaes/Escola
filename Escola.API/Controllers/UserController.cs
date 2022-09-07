@@ -1,7 +1,8 @@
 ﻿using Escola.Domain.Commands.UserCommands;
+using Escola.Domain.Entities;
 using Escola.Domain.Handlers.UserHandlers;
+using Escola.Domain.RepositoryInterfaces;
 using Escola.Shared.Commands;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Escola.API.Controllers
@@ -29,6 +30,44 @@ namespace Escola.API.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<User>>> GetAll(
+            [FromServices] IUserRepository<User> repository    
+        )
+        {
+            try
+            {
+                var users = await repository.GetAll();
+                if (users == null)
+                    return Ok("O sistema não possui usuarios cadastrados.");
+                return Ok(users);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Err002U - Desculpe! Ocorreu uma falha interna no servidor, favor comunicar o administrador.");
+            }
+        }
+
+
+        [HttpGet("{userId}")]
+        public async Task<ActionResult<User>> Get(
+            int userId,
+            [FromServices] IUserRepository<User> repository
+        )
+        {
+            try
+            {
+                var user = await repository.Get(userId);
+                if (user == null)
+                    return Ok("Usuario não encontrado.");
+                return Ok(user);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Err003U - Desculpe! Ocorreu uma falha interna no servidor, favor comunicar o administrador.");
+            }
+        }
+
         [HttpPut]
         public async Task<ActionResult<GenericCommandResult>> Update(
             [FromBody] UpdateUserCommand command,
@@ -44,7 +83,7 @@ namespace Escola.API.Controllers
             }
             catch (Exception)
             {
-                return BadRequest("Err002U - Desculpe! Ocorreu uma falha interna no servidor, favor comunicar o administrador.");
+                return BadRequest("Err004U - Desculpe! Ocorreu uma falha interna no servidor, favor comunicar o administrador.");
             }
         }
 
@@ -63,7 +102,7 @@ namespace Escola.API.Controllers
             }
             catch (Exception)
             {
-                return BadRequest("Err003U - Desculpe! Ocorreu uma falha interna no servidor, favor comunicar o administrador.");
+                return BadRequest("Err005U - Desculpe! Ocorreu uma falha interna no servidor, favor comunicar o administrador.");
             }
         }
     }

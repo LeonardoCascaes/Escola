@@ -1,7 +1,8 @@
 ﻿using Escola.Domain.Commands.ScholarityCommands;
+using Escola.Domain.Entities;
 using Escola.Domain.Handlers.ScholarityHandlers;
+using Escola.Domain.RepositoryInterfaces;
 using Escola.Shared.Commands;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Escola.API.Controllers
@@ -29,6 +30,44 @@ namespace Escola.API.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Scholarity>>> GetAll(
+            [FromServices] IScholarityRepository<Scholarity> repository
+        )
+        {
+            try
+            {
+                var scholarities = await repository.GetAll();
+                if (scholarities == null)
+                    return Ok("O sistema não possui escolaridades cadastradas.");
+                return Ok(scholarities);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Err002SC - Desculpe! Ocorreu uma falha interna no servidor, favor comunicar o administrador.");
+            }
+        }
+
+
+        [HttpGet("{scholarityId}")]
+        public async Task<ActionResult<Scholarity>> Get(
+            int scholarityId,
+            [FromServices] IScholarityRepository<Scholarity> repository
+        )
+        {
+            try
+            {
+                var scholarity = await repository.Get(scholarityId);
+                if (scholarity == null)
+                    return Ok("Escolaridade não encontrada.");
+                return Ok(scholarity);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Err003SC - Desculpe! Ocorreu uma falha interna no servidor, favor comunicar o administrador.");
+            }
+        }
+
         [HttpPut]
         public async Task<ActionResult<GenericCommandResult>> Update(
             [FromBody] UpdateScholarityCommand command,
@@ -44,7 +83,7 @@ namespace Escola.API.Controllers
             }
             catch (Exception)
             {
-                return BadRequest("Err002SC - Desculpe! Ocorreu uma falha interna no servidor, favor comunicar o administrador.");
+                return BadRequest("Err004SC - Desculpe! Ocorreu uma falha interna no servidor, favor comunicar o administrador.");
             }
         }
 
@@ -63,7 +102,7 @@ namespace Escola.API.Controllers
             }
             catch (Exception)
             {
-                return BadRequest("Err003SC - Desculpe! Ocorreu uma falha interna no servidor, favor comunicar o administrador.");
+                return BadRequest("Err005SC - Desculpe! Ocorreu uma falha interna no servidor, favor comunicar o administrador.");
             }
         }
     }

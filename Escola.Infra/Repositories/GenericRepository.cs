@@ -1,4 +1,5 @@
-﻿using Escola.Domain.RepositoryInterfaces;
+﻿using Escola.Domain.Queries;
+using Escola.Domain.RepositoryInterfaces;
 using Escola.Infra.Contexts;
 using Escola.Shared.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -23,12 +24,12 @@ namespace Escola.Infra.Repositories
 
         public async Task<T?> Get(int id)
         {
-            return await _context.Set<T>().FindAsync(id);
+            return await _context.Set<T>().AsNoTracking().Where(GenericQueries<T>.GetById(id)).FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<T>?> GetAll()
         {
-            return await _context.Set<T>().ToListAsync();
+            return await _context.Set<T>().AsNoTracking().ToListAsync();
         }
 
         public async Task Update(T entity)
