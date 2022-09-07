@@ -28,7 +28,7 @@ namespace Escola.Test.Domain.Handlers.ScholarityHandlers
         }
 
         [Fact]
-        public async Task Nao_Deve_Obter_Sucesso_Para_A_Criacao_Da_Escolaridade_Ao_Tentar_Validar_O_Command_No_Handler()
+        public async Task Nao_Deve_Obter_Sucesso_Para_A_Criacao_Da_Escolaridade_Caso_Der_Problema_Na_Validacao_Do_Command()
         {
             //Arrange
             var handler = new CreateScholarityHandler(_scholarityRepository, _userRepository);
@@ -41,7 +41,7 @@ namespace Escola.Test.Domain.Handlers.ScholarityHandlers
         }
 
         [Fact]
-        public async Task Nao_Deve_Obter_Sucesso_Para_A_Criacao_Da_Escolaridade_Ao_Tentar_Encontrar_O_Usuario()
+        public async Task Nao_Deve_Obter_Sucesso_Para_A_Criacao_Da_Escolaridade_Caso_Nao_Encontrar_O_Usuario()
         {
             //Arrange
             var handler = new CreateScholarityHandler(_scholarityRepository, _userRepository);

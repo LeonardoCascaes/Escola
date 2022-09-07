@@ -68,5 +68,25 @@ namespace Escola.API.Controllers
                 return BadRequest("Err003SE - Desculpe! Ocorreu uma falha interna no servidor, favor comunicar o administrador.");
             }
         }
+
+        [HttpPut]
+        public async Task<ActionResult<SchoolEvaluation>> Update(
+            [FromBody] UpdateSchoolEvaluationCommand command,
+            [FromServices] UpdateSchoolEvaluationHandler handler
+        )
+        {
+            try
+            {
+                var result = (GenericCommandResult)await handler.Handle(command);
+                if (!result.Success)
+                    return BadRequest(result);
+
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Err004SE - Desculpe! Ocorreu uma falha interna no servidor, favor comunicar o administrador.");
+            }
+        }
     }
 }

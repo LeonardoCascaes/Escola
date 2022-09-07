@@ -28,6 +28,7 @@ namespace Escola.IoC
             service.AddTransient<DeleteScholarityHandler, DeleteScholarityHandler>();
             service.AddTransient<CreateSchoolRecordhandler, CreateSchoolRecordhandler>();
             service.AddTransient<CreateSchoolEvaluationHandler, CreateSchoolEvaluationHandler>();
+            service.AddTransient<UpdateSchoolEvaluationHandler, UpdateSchoolEvaluationHandler>();
 
             return service;
         }
