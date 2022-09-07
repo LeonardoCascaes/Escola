@@ -22,7 +22,7 @@ namespace Escola.Test.Domain.Handlers.UserHandlers
         }
 
         [Fact]
-        public async Task Nao_Deve_Obter_Sucesso_Para_A_Criacao_Do_Usuario_Ao_Tentar_Validar_O_Command_No_Handler()
+        public async Task Nao_Deve_Obter_Sucesso_Para_A_Criacao_Do_Usuario_Caso_Der_Problema_Na_Validacao_Do_Command()
         {
             //Arrange
             var handler = new CreateUserHandler(_userRepository);
