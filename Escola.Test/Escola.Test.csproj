@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Escola.Shared\Escola.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
